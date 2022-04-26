@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+  <div class="auth-form-box col-8">
+    <h2 class="text-center font-weight-bold mb-5">Create Your Account!</h2>
+
+    <form class="form" method="POST" autocomplete="off" [formGroup]="registerFormGroup">
+      <div class="form-item form-floating">
+        <input type="text" id="name" name="name" required autocomplete="off" class="form-control" formControlName="name"
+               [class.is-invalid]="registerFormGroup.get('name')?.touched && registerFormGroup.get('name')?.invalid"
+               placeholder="Mr. Anderson">
+        <div class="invalid-feedback" *ngIf="registerFormGroup.get('name')?.hasError('required')">
+          Your Name Is Required
+        </div>
+        <div class="invalid-feedback" *ngIf="registerFormGroup.get('name')?.hasError('minLength')">
+          Your Name Should Contain At Least 1 Characters
+        </div>
+        <div class="invalid-feedback" *ngIf="registerFormGroup.get('name')?.hasError('maxLength')">
+          Your Name Are Limited By 99 Characters
+        </div>
+        <div class="invalid-feedback" *ngIf="registerFormGroup.get('name')?.hasError('backend')">
+          {{registerFormGroup.get('name')?.getError('backend')}}
+        </div>
+        <label for="name" class="form-label">Name</label>
+      </div>
+      <div class="form-item form-floating">
+        <input type="text" id="email" name="email" required autocomplete="off" class="form-control"  formControlName="email"
+               [class.is-invalid]="registerFormGroup.get('email')?.touched && registerFormGroup.get('email')?.invalid"
+               placeholder="user@gmail.com">
+        <div class="invalid-feedback" *ngIf="registerFormGroup.get('email')?.hasError('required')">
+          Your Email Is Required
+        </div>
+        <div class="invalid-feedback" *ngIf="registerFormGroup.get('email')?.hasError('email')">
+          Invalid Email Format
+        </div>
+        <div class="invalid-feedback" *ngIf="registerFormGroup.get('email')?.hasError('backend')">
+          {{registerFormGroup.get('email')?.getError('backend')}}
+        </div>
+        <label for="email" class="form-label">Email</label>
+      </div>
+      <div class="form-item form-floating">
+        <input type="password" id="password" name="password" required class="form-control" autocomplete="off"
+               placeholder="***********" formControlName="password"
+               [class.is-invalid]="registerFormGroup.get('password')?.touched && registerFormGroup.get('password')?.invalid">
+        <div class="invalid-feedback" *ngIf="registerFormGroup.get('password')?.hasError('required')">
+          Password Is Required
+        </div>
+        <div class="invalid-feedback" *ngIf="registerFormGroup.get('password')?.hasError('backend')">
+          {{registerFormGroup.get('password')?.getError('backend')}}
+        </div>
+        <label for="password" class="form-label">Password</label>
+      </div>
+      <div class="form-item form-floating">
+        <input type="password" id="password_confirmation" name="password_confirmation" required autocomplete="off"
+               class="form-control" placeholder="***********" formControlName="password_confirmation"
+               [class.is-invalid]="registerFormGroup.get('password_confirmation')?.touched &&
+               (registerFormGroup.get('password_confirmation')?.invalid || registerFormGroup.hasError('invalidConfirmation'))">
+        <div class="invalid-feedback" *ngIf="registerFormGroup.get('password_confirmation')?.hasError('required')">
+          Password Confirmation Is Required
+        </div>
+        <div class="invalid-feedback" *ngIf="registerFormGroup.hasError('invalidConfirmation')">
+          Password Confirmation Mismatch
+        </div>
+        <label for="password_confirmation" class="form-label">Repeat Password</label>
+      </div>
+
+      <button class="btn btn-secondary w-100" type="button" (click)="register()" [disabled]="registerFormGroup.invalid">Register Now!</button>
+    </form>
+
+    <p class="form-text mt-3">You'll receive a confirmation email in your inbox with a link to activate your account.
+      If you have any problems, <a href="#">contact us</a>!</p>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+@import "src/assets/css/theme";
+
+$input-padding-y: .75rem;
+$input-btn-padding-x: 1rem;
+$input-bg: $color-input-background;
+$input-color: $black;
+
+$input-font-family: Rajdhani;
+$input-font-size: .875rem;
+$input-font-weight: 700;
+
+$input-border-color: $gray-light;
+$input-border-radius: 12px;
+
+$input-focus-box-shadow: none;
+$input-focus-border-color: $violet;
+
+$form-label-font-size: 1rem;
+$form-label-font-weight: 600;
+$form-label-color: $gray;
+
+//$form-floating-label-opacity: 1;
+//$form-floating-label-transform: scale(.85) translateY(-1.75rem) translateX(.15rem);
+//
+//$form-floating-input-padding-t: 1rem;
+//$form-floating-input-padding-b: 1rem;
+

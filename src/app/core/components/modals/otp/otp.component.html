@@ -1,0 +1,10 @@
+<section class="modal-wrapper justify-content-center align-items-center flex-column" [ngClass]="isShown ? 'd-flex' : 'd-none'">
+  <span role="button" class="close" (click)="close()"></span>
+  <h2 class="d-block fw-bold mb-5" *ngIf="isEmail">Email Verification</h2>
+  <h2 class="d-block fw-bold mb-5" *ngIf="isPhone">Phone Verification</h2>
+  <div>
+    <input *ngFor="let el of this.arrOtpValues; let i = index" #otpInput class="me-2" [formControl]="arrOtpValues[i]"
+           type="number" (keydown)="typeOtp(i, $event)" (paste)="handlePaste($event)">
+  </div>
+  <a role="button" class="mt-3 color-lighter ">Haven't received message? Resend code.</a>
+</section>

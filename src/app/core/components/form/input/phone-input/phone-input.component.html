@@ -1,0 +1,18 @@
+<div class="input-group mb-3" ngbDropdown>
+  <button class="btn btn-outline-secondary dropdown-toggle" ngbDropdownToggle>
+    <img class="" [src]="activeCountry?.flag" [alt]="activeCountry?.name + ' flag'">
+    {{activeCountry?.dial_code}}
+  </button>
+  <input type="text" class="form-control phone" [formControl]="this.phone" (keyup)="phoneChange()">
+  <ul class="overflow-scroll" ngbDropdownMenu>
+    <li class="px-2">
+      <input type="text" placeholder="Search" class="form-control" [formControl]="this.phoneSearch" (keyup)="search()">
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="d-flex" ngbDropdownItem *ngFor="let country of countries" (click)="setCountry(country)">
+      <img class="float-start me-3" [src]="country.flag" [alt]="country.name + ' flag'">
+      <a role="button">{{country.name}} <span class="color-lighter">{{country.dial_code}}</span></a>
+    </li>
+  </ul>
+
+</div>

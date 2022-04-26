@@ -1,0 +1,37 @@
+@import "src/assets/css/colors";
+
+.dropdown-menu {
+  width: 500px;
+}
+
+.dropdown-toggle {
+  border: 1px solid #dedeea;
+  border-right: none;
+  color: $black;
+
+  &:hover {
+    background: transparent;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.phone {
+  border-left: none;
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+
+  padding-left: 0;
+}
+
+img {
+  width: 30px;
+}
+
+ul {
+  height: 400px;
+  border-radius: 12px;
+}
+

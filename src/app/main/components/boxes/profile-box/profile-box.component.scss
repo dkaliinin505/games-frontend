@@ -1,0 +1,11 @@
+.profile-box {
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
+  height: 140px;
+
+  &:hover {
+    box-shadow: 0 0 40px 0 rgb(94 92 154 / 12%);
+    transform: translateY(-4px);
+  }
+}

@@ -1,0 +1,106 @@
+@import "src/assets/css/theme";
+
+.sidebar-box {
+  padding: 32px 28px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 0 40px 0 rgba(94, 92, 154, .06)
+}
+
+.sidebar-menu {
+  .sidebar-menu-item {
+    border-bottom: 1px solid $gray-light;
+
+    &:first-child {
+      .sidebar-menu-header {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px
+      }
+    }
+
+    &:last-child {
+      border-bottom: none;
+
+      .sidebar-menu-body, .sidebar-menu-header {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px
+      }
+    }
+
+    &.selected {
+      .sidebar-menu-header {
+        .sidebar-menu-header-control-icon {
+          .sidebar-menu-header-control-icon-open {
+            display: block;
+          }
+
+          .sidebar-menu-header-control-icon-closed {
+            display: none
+          }
+        }
+      }
+    }
+
+    .sidebar-menu-header {
+      height: 112px;
+      padding: 28px 26px 0 60px;
+      background-color: $white;
+      cursor: pointer;
+      position: relative;
+
+      .sidebar-menu-header-title {
+        font-size: 1rem;
+        font-weight: 700
+      }
+
+      .sidebar-menu-header-text {
+        margin-top: 4px;
+        color: $gray-dark;
+        font-size: .75rem;
+        font-weight: 500;
+        line-height: 1.3333333333em
+      }
+
+      .sidebar-menu-header-icon {
+        position: absolute;
+        top: 28px;
+        left: 28px;
+      }
+
+      .sidebar-menu-header-control-icon {
+        .sidebar-menu-header-control-icon-closed, .sidebar-menu-header-control-icon-open {
+          fill: $black;
+          position: absolute;
+          top: 32px;
+          right: 28px
+        }
+
+        .sidebar-menu-header-control-icon-open {
+          display: none
+        }
+      }
+    }
+
+    .sidebar-menu-body {
+      border-top: 1px solid $gray-lighter;
+      background-color: $white-dark;
+      padding: 12px 0 12px 60px;
+
+      .sidebar-menu-link {
+        display: block;
+        height: 34px;
+        font-size: .875rem;
+        font-weight: 700;
+        line-height: 34px;
+        cursor: pointer;
+        transition: transform .2s ease-in-out, color .25s ease-in-out, -webkit-transform .2s ease-in-out;
+
+        &.active, .sidebar-menu-body .sidebar-menu-link:hover {
+          color: #093e9a;
+          -webkit-transform: translate(4px);
+          transform: translate(4px)
+        }
+      }
+    }
+  }
+}

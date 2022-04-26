@@ -1,0 +1,80 @@
+<div class="container-fluid">
+  <div class="row section-header">
+    <div class="section-header-info">
+      <p class="section-pretitle fw-bold m-0">My Profile</p>
+      <h2 class="section-title fw-bolder mt-0">Profile Info</h2>
+    </div>
+  </div>
+  <div class="row justify-content-between mt-4">
+    <div class="col-4">
+      <div class="user-preview p-0">
+        <figure class="user-preview-cover">
+          <img src="assets/images/banners/cover.png" alt="cover-01">
+        </figure>
+        <div class="user-preview-info">
+          <div class="user-short-description small">
+            <div class="user-short-description-avatar user-avatar">
+              <div class="user-avatar-content">
+                <div class="hexagon">
+                  <div class="hexagon small">
+                    <div class="hexagon small white">
+                      <img [src]="user?.avatar">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <members-profile-box title="Change Avatar" subTitle="900kb size maximum"></members-profile-box>
+    </div>
+
+    <div class="col-4">
+      <members-profile-box title="Level" subTitle="Click To See Details"></members-profile-box>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <members-content-box title="About Your Profile">
+      <form class="form" [formGroup]="profileFormGroup">
+        <div class="form-item form-floating">
+          <input type="text" id="name" name="name" required class="form-control" placeholder="Name" autocomplete="name"
+                 formControlName="name">
+          <label for="name" class="fs-7">Name</label>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <members-phone-input [phoneControl]="profileFormGroup.controls['phone_number']"></members-phone-input>
+          </div>
+
+          <div class="col-2" *ngIf="user?.phone_number_verified === false">
+            <button class="btn btn-outline-secondary w-100" (click)="verify(this.otpPhone)">Verify</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-item form-floating">
+              <input class="form-control" type="text" id="email" name="email" autocomplete="email" formControlName="email"
+                     [value]="user?.email" placeholder="Email">
+              <label for="email">Email</label>
+            </div>
+          </div>
+
+          <div class="col-2" *ngIf="user?.email_verified === false">
+            <button class="btn btn-outline-secondary w-100" (click)="verify(this.otpEmail)">Verify</button>
+          </div>
+        </div>
+
+
+        <button class="btn btn-secondary w-100" type="button" (click)="save()" [class.disabled]="isProcessing">Save</button>
+      </form>
+    </members-content-box>
+  </div>
+</div>
+
+<members-modal-otp></members-modal-otp>

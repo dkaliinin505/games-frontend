@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+  <div class="auth-form-box col-8">
+    <h2 class="text-center font-weight-bold mb-5">Account Login</h2>
+
+    <form class="form" method="POST" autocomplete="off" [formGroup]="loginFormGroup">
+      <div class="form-item form-floating">
+        <input type="text" id="email" name="email" required class="form-control" autocomplete="off"
+               placeholder="user@gmail.com" formControlName="email"
+               [class.is-invalid]="loginFormGroup.get('email')?.touched && loginFormGroup.get('email')?.invalid">
+        <div class="invalid-feedback" *ngIf="loginFormGroup.get('email')?.hasError('required')">
+          Your Email Is Required
+        </div>
+        <div class="invalid-feedback" *ngIf="loginFormGroup.get('email')?.hasError('email')">
+          Invalid Email Format
+        </div>
+        <div class="invalid-feedback" *ngIf="loginFormGroup.get('email')?.hasError('backend')">
+          {{loginFormGroup.get('email')?.getError('backend')}}
+        </div>
+        <label for="email">Email</label>
+      </div>
+      <div class="form-item form-floating">
+        <input type="password" id="password" name="password" required class="form-control" autocomplete="off"
+               placeholder="***********" formControlName="password"
+               [class.is-invalid]="loginFormGroup.get('password')?.touched && loginFormGroup.get('password')?.invalid">
+        <div class="invalid-feedback" *ngIf="loginFormGroup.get('password')?.hasError('required')">
+          Password Is Required
+        </div>
+        <div class="invalid-feedback" *ngIf="loginFormGroup.get('password')?.hasError('backend')">
+          {{loginFormGroup.get('password')?.getError('backend')}}
+        </div>
+        <label for="password" class="form-label">Password</label>
+      </div>
+      <div class="d-flex">
+        <div class="form-item col text-end">
+          <a routerLink="{{links.forgotPassword}}">Forgot Password?</a>
+        </div>
+      </div>
+
+      <button class="btn btn-secondary w-100" type="button" (click)="login()" [disabled]="!loginFormGroup.valid">
+        Login to your Account!
+      </button>
+
+      <p class="lined-text">Login with your Social Account</p>
+      <div class="social-links">
+        <a class="social-link facebook" href="#">
+          <icon-facebook></icon-facebook>
+        </a>
+        <a class="social-link twitter" href="#">
+          <icon-twitter></icon-twitter>
+        </a>
+        <a class="social-link google" href="#">
+          <icon-google></icon-google>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+

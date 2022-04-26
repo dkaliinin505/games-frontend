@@ -1,0 +1,32 @@
+<div class="account-hub-sidebar">
+  <div class="sidebar-box p-0">
+    <div class="sidebar-menu">
+      <ng-container *ngFor="let group of groupLinks">
+        <div class="sidebar-menu-item selected" [class.selected]="activeGroups.has(group.code)">
+          <div class="sidebar-menu-header accordion-trigger-linked" (click)="toggleState(group.code)">
+            <span class="sidebar-menu-header-icon" [ngSwitch]="group.code">
+              <icon-profile *ngSwitchCase="'profile'"></icon-profile>
+              <icon-earnings *ngSwitchCase="'earnings'"></icon-earnings>
+              <icon-play *ngSwitchCase="'play'"></icon-play>
+              <icon-settings *ngSwitchDefault></icon-settings>
+            </span>
+
+            <div class="sidebar-menu-header-control-icon">
+              <span class="sidebar-menu-header-control-icon-open">
+                <icon-minus></icon-minus>
+              </span>
+              <span class="sidebar-menu-header-control-icon-closed">
+                <icon-plus></icon-plus>
+              </span>
+            </div>
+            <p class="sidebar-menu-header-title m-0">{{group.name}}</p>
+            <p class="sidebar-menu-header-text mb-0">{{group.description}}</p>
+          </div>
+          <div class="sidebar-menu-body" [@contentExpansion]="activeGroups.has(group.code) ? 'expanded' : 'collapsed'">
+            <a *ngFor="let link of group.links" class="sidebar-menu-link" [class.active]="url === link.link" href="{{link.link}}">{{link.title}}</a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

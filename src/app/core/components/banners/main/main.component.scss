@@ -1,0 +1,18 @@
+.section-banner {
+  min-height: 160px;
+  padding: 35px 60px 0 200px;
+  border-radius: 12px;
+  background: url("/assets/images/banners/background.png") no-repeat 50%;
+  background-size: cover;
+  position: relative;
+
+  .section-banner-icon {
+    position: absolute;
+    bottom: 0;
+    left: 0
+  }
+
+  .section-banner-text, .section-banner-title {
+    color: #fff
+  }
+}

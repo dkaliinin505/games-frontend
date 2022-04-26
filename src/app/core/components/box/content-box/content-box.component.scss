@@ -1,0 +1,9 @@
+@import "src/assets/css/theme";
+
+.content-box {
+  padding: 32px 28px;
+  border-radius: 12px;
+  background-color: $white;
+  box-shadow: 0 0 40px 0 rgb(94 92 154 / 6%);
+  position: relative;
+}

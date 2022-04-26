@@ -1,0 +1,21 @@
+<div class="wrapper container-fluid">
+  <div class="row align-items-center">
+    <div class="auth-block col">
+      <div class="logo"></div>
+
+      <h2>Welcome to</h2>
+      <h1>Members</h1>
+
+      <p>The next generation E-Sports and Gaming Platform!</p>
+
+      <div class="tab-switch mt-5" *ngIf="isSwitchActive">
+        <a class="tab-switch-button" routerLink="{{links.login}}" routerLinkActive="active">Login</a>
+        <a class="tab-switch-button" routerLink="{{links.register}}" routerLinkActive="active">Register</a>
+      </div>
+    </div>
+
+    <div class="landing-form col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

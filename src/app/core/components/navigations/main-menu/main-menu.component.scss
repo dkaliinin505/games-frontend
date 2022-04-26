@@ -1,0 +1,44 @@
+@import "src/assets/css/theme";
+
+.menu-main {
+  display: flex;
+  margin-bottom: 0;
+
+  .menu-main-item {
+    list-style: none;
+
+    .menu-main-item-link {
+      padding: 0 24px;
+      display: block;
+      color: $white;
+      font-weight: 700;
+      line-height: 80px;
+      cursor: pointer;
+      transition: color .2s ease-in-out;
+      text-decoration: none;
+
+      .icon-dots {
+        transition: fill .2s ease-in-out;
+      }
+    }
+
+    &:hover {
+      & > {
+        .menu-main-item-link {
+          color: $color-primary-light;
+
+          .icon-dots {
+            fill: $color-primary-light;
+          }
+        }
+
+        .menu-main {
+          transform: translate(0, 0);
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+}
